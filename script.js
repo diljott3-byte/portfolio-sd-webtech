@@ -6,7 +6,8 @@ const SD_CONFIG = {
 
 const projectConfig = {
   jesan: { base: "https://jesansteelworks.com/" },
-  sahney: { base: "https://sahneypagrihouse.com/" }
+  sahney: { base: "https://sahneypagrihouse.com/" },
+  clothcrown: { base: "https://diljott3-byte.github.io/cloyh-crown/" }
 };
 
 document.querySelectorAll("[data-project]").forEach((wrap) => {
@@ -112,61 +113,4 @@ applyTheme(storedTheme === "dark" ? "dark" : "light", false);
 
 themeToggle?.addEventListener("click", () => {
   applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
-});
-
-/* Lazy-load the stock development reel only when it is near the viewport. */
-const studioVideo = document.querySelector("[data-studio-video]");
-const studioToggle = document.querySelector("[data-video-toggle]");
-let studioLoaded = false;
-let studioUserPaused = false;
-
-function loadStudioVideo() {
-  if (!studioVideo || studioLoaded) return;
-  const source = studioVideo.querySelector("source[data-src]");
-  if (!source) return;
-  source.src = source.dataset.src;
-  studioVideo.load();
-  studioLoaded = true;
-}
-
-function updateStudioButton() {
-  if (!studioToggle || !studioVideo) return;
-  const paused = studioVideo.paused;
-  studioToggle.querySelector("span").textContent = paused ? "▶" : "Ⅱ";
-  studioToggle.setAttribute("aria-label", paused ? "Play development reel" : "Pause development reel");
-}
-
-if (studioVideo) {
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const videoObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        if (!studioVideo.paused) studioVideo.pause();
-        updateStudioButton();
-        return;
-      }
-      loadStudioVideo();
-      if (!reduceMotion && !studioUserPaused) {
-        studioVideo.play().catch(() => {});
-      }
-      updateStudioButton();
-    });
-  }, { rootMargin: "220px 0px", threshold: 0.15 });
-  videoObserver.observe(studioVideo);
-
-  studioVideo.addEventListener("play", updateStudioButton);
-  studioVideo.addEventListener("pause", updateStudioButton);
-}
-
-studioToggle?.addEventListener("click", () => {
-  if (!studioVideo) return;
-  loadStudioVideo();
-  if (studioVideo.paused) {
-    studioUserPaused = false;
-    studioVideo.play().catch(() => {});
-  } else {
-    studioUserPaused = true;
-    studioVideo.pause();
-  }
-  updateStudioButton();
 });
