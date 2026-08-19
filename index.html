@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#05070a" />
+  <meta name="theme-color" content="#f7fbff" />
   <meta name="description" content="SD Web Technologies — professional websites and digital experiences built for modern businesses." />
   <title>SD Web Technologies — Company Portfolio</title>
   <link rel="icon" href="assets/sd-logo.png" />
@@ -26,7 +26,13 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <a class="nav-cta" href="#contact">Start a project <span>↗</span></a>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Change theme">
+        <span class="theme-icon theme-icon-light" aria-hidden="true">☼</span>
+        <span class="theme-icon theme-icon-dark" aria-hidden="true">◐</span>
+      </button>
+      <a class="nav-cta" href="#contact">Start a project <span>↗</span></a>
+    </div>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
   </header>
 
@@ -39,14 +45,96 @@
 
   <main>
     <section class="hero section-shell">
+      <!-- Mobile-first conversion hero: shown only on phones. Desktop hero remains unchanged. -->
+      <div class="mobile-conversion-hero">
+        <div class="mobile-hero-intro">
+          <div class="mobile-hero-kicker">
+            <span><i></i> Websites • Brand • Digital Growth</span>
+            <b>SD / 2026</b>
+          </div>
+
+          <h1 class="mobile-hero-title">
+            We build websites<br />
+            that turn <em>businesses</em><br />
+            into <span>brands.</span>
+          </h1>
+          <p class="mobile-hero-tagline">WE TRANSFORM BUSSINESS INTO BRAND</p>
+        </div>
+
+        <div class="mobile-solution-card" aria-label="What SD Web Technologies does">
+          <div class="mobile-solution-head">
+            <span>WHAT WE BUILD FOR YOU</span>
+            <b>01—03</b>
+          </div>
+
+          <div class="mobile-solution-row">
+            <span class="solution-no">01</span>
+            <div>
+              <strong>Professional Website</strong>
+              <small>Premium UI • Mobile-first • Fast</small>
+            </div>
+            <span class="solution-mark">↗</span>
+          </div>
+
+          <div class="mobile-solution-row">
+            <span class="solution-no">02</span>
+            <div>
+              <strong>Stronger Brand Presence</strong>
+              <small>Identity • Trust • Better presentation</small>
+            </div>
+            <span class="solution-mark">↗</span>
+          </div>
+
+          <div class="mobile-solution-row">
+            <span class="solution-no">03</span>
+            <div>
+              <strong>Direct Customer Conversion</strong>
+              <small>WhatsApp • Call • Social connectivity</small>
+            </div>
+            <span class="solution-mark">↗</span>
+          </div>
+        </div>
+
+        <div class="mobile-conversion-actions">
+          <a class="mobile-conversion-primary" data-contact-whatsapp href="https://wa.me/917528076807" target="_blank" rel="noopener">
+            <span>Start your website</span>
+            <strong>WhatsApp us <b>↗</b></strong>
+          </a>
+          <a class="mobile-conversion-secondary" href="#work">
+            <span>See real client work</span>
+            <strong>2 live websites <b>↓</b></strong>
+          </a>
+        </div>
+
+        <div class="mobile-client-proof">
+          <span class="proof-label">LIVE CLIENT WORK</span>
+          <a href="https://jesansteelworks.com/" target="_blank" rel="noopener"><i></i> jesansteelworks.com <b>↗</b></a>
+          <a href="https://sahneypagrihouse.com/" target="_blank" rel="noopener"><i></i> sahneypagrihouse.com <b>↗</b></a>
+        </div>
+
+        <a class="mobile-scroll-cue" href="#work" aria-label="Scroll to selected work"><span>Explore portfolio</span><i>↓</i></a>
+      </div>
+
       <div class="hero-grid">
         <div class="hero-copy reveal">
           <div class="eyebrow"><span class="status-dot"></span> Brand • Web • Digital Presence</div>
-          <h1>We build businesses<br /><span>people notice.</span></h1>
-          <p class="hero-lede">SD Web Technologies turns offline businesses into clear, modern digital brands — with websites designed to look credible, work fast and convert attention into enquiries.</p>
+          <h1>WE TRANSFORM<br /><span>BUSSINESS INTO BRAND</span></h1>
+          <p class="hero-lede">SD Web Technologies creates polished digital identities and high-converting websites that help businesses look established, credible and ready to grow.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#work">Explore our work <span>↘</span></a>
             <a class="btn btn-ghost" href="#process">How we work</a>
+          </div>
+          <div class="quick-connect" aria-label="Direct contact links">
+            <a class="quick-link quick-whatsapp" data-contact-whatsapp href="https://wa.me/917528076807" target="_blank" rel="noopener">
+              <span class="quick-icon" aria-hidden="true">W</span>
+              <span><small>Start a conversation</small><strong>WhatsApp · 75280 76807</strong></span>
+              <b aria-hidden="true">↗</b>
+            </a>
+            <a class="quick-link quick-instagram" data-contact-instagram href="https://www.instagram.com/sdwebtech?igsi=MXR0dnY3bGNkcjYyMg%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener">
+              <span class="quick-icon" aria-hidden="true">◎</span>
+              <span><small>See our visual work</small><strong>@sdwebtech</strong></span>
+              <b aria-hidden="true">↗</b>
+            </a>
           </div>
           <div class="hero-proof">
             <div><strong>02</strong><span>Featured client websites</span></div>
@@ -227,11 +315,19 @@
         <div class="section-kicker">06 / Start a project</div>
         <h2>Ready to give your business<br /><span>a stronger digital first impression?</span></h2>
         <p>Share your business, what you sell and what you want the website to achieve. We’ll turn that into a clear digital direction.</p>
-        <div class="contact-actions">
-          <a class="btn btn-primary" data-contact-whatsapp href="#">Talk on WhatsApp <span>↗</span></a>
-          <a class="btn btn-ghost" data-contact-email href="#">Send an email</a>
+        <div class="contact-actions contact-social-actions">
+          <a class="social-cta whatsapp-cta" data-contact-whatsapp href="https://wa.me/917528076807" target="_blank" rel="noopener">
+            <span class="social-cta-icon" aria-hidden="true">W</span>
+            <span class="social-cta-copy"><small>Message us directly</small><strong>WhatsApp</strong><em>+91 75280 76807</em></span>
+            <span class="social-cta-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="social-cta instagram-cta" data-contact-instagram href="https://www.instagram.com/sdwebtech?igsi=MXR0dnY3bGNkcjYyMg%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener">
+            <span class="social-cta-icon" aria-hidden="true">◎</span>
+            <span class="social-cta-copy"><small>Follow our work</small><strong>Instagram</strong><em>@sdwebtech</em></span>
+            <span class="social-cta-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
-        <small class="contact-note">Contact links can be updated once in <code>script.js</code>.</small>
+        <small class="contact-note">Fastest way to reach us: WhatsApp.</small>
       </div>
     </section>
   </main>
@@ -241,7 +337,7 @@
       <span class="brand-mark"><img src="assets/sd-logo.png" alt="SD Web Technologies logo" /></span>
       <span class="brand-copy"><strong>SD Web</strong><small>Technologies</small></span>
     </a>
-    <div class="footer-center">Professional websites for businesses that want to be taken seriously online.</div>
+    <div class="footer-center">WE TRANSFORM BUSSINESS INTO BRAND</div>
     <div class="footer-right">© <span data-year></span> SD Web Technologies</div>
   </footer>
 

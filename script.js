@@ -1,8 +1,7 @@
-/* SD Web Technologies portfolio configuration.
-   Replace the two contact values below once you provide the final details. */
+/* SD Web Technologies portfolio configuration. */
 const SD_CONFIG = {
-  whatsapp: "", // Example: 919876543210 (country code + number, no + sign)
-  email: ""      // Example: hello@sdwebtech.com
+  whatsapp: "917528076807",
+  instagram: "https://www.instagram.com/sdwebtech?igsi=MXR0dnY3bGNkcjYyMg%3D%3D&utm_source=qr"
 };
 
 const projectConfig = {
@@ -82,17 +81,35 @@ mobileMenu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () 
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
 
-const wa = document.querySelector("[data-contact-whatsapp]");
-const mail = document.querySelector("[data-contact-email]");
-if (SD_CONFIG.whatsapp) {
-  wa.href = `https://wa.me/${SD_CONFIG.whatsapp}?text=${encodeURIComponent("Hi SD Web Technologies, I want to discuss a website/project for my business.")}`;
-  wa.target = "_blank";
-  wa.rel = "noopener";
-} else {
-  wa.addEventListener("click", (e) => { e.preventDefault(); alert("Add the WhatsApp number in SD_CONFIG inside script.js."); });
+const whatsappMessage = encodeURIComponent("Hi SD Web Technologies, I want to discuss a website/project for my business.");
+document.querySelectorAll("[data-contact-whatsapp]").forEach((link) => {
+  link.href = `https://wa.me/${SD_CONFIG.whatsapp}?text=${whatsappMessage}`;
+  link.target = "_blank";
+  link.rel = "noopener";
+});
+
+document.querySelectorAll("[data-contact-instagram]").forEach((link) => {
+  link.href = SD_CONFIG.instagram;
+  link.target = "_blank";
+  link.rel = "noopener";
+});
+
+const root = document.documentElement;
+const themeToggle = document.querySelector("[data-theme-toggle]");
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(theme, persist = true) {
+  root.dataset.theme = theme;
+  const dark = theme === "dark";
+  themeToggle?.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+  themeToggle?.setAttribute("title", dark ? "Switch to light theme" : "Switch to dark theme");
+  if (themeMeta) themeMeta.content = dark ? "#07101d" : "#f7fbff";
+  if (persist) localStorage.setItem("sd-theme", theme);
 }
-if (SD_CONFIG.email) {
-  mail.href = `mailto:${SD_CONFIG.email}?subject=${encodeURIComponent("Project enquiry — SD Web Technologies")}`;
-} else {
-  mail.addEventListener("click", (e) => { e.preventDefault(); alert("Add the email address in SD_CONFIG inside script.js."); });
-}
+
+const storedTheme = localStorage.getItem("sd-theme");
+applyTheme(storedTheme === "dark" ? "dark" : "light", false);
+
+themeToggle?.addEventListener("click", () => {
+  applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
+});

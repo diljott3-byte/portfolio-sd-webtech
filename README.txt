@@ -1,22 +1,22 @@
 SD Web Technologies — Single Page Portfolio
 
-Files
-- index.html  : full landing page structure/content
-- styles.css  : all responsive styling and animation
-- script.js   : project preview tabs, interactions, contact configuration
-- assets/sd-logo.png : cropped version of the supplied SD logo
+Main files:
+- index.html
+- styles.css
+- script.js
+- assets/sd-logo.png
 
-IMPORTANT CONTACT SETUP
-Open script.js and edit only SD_CONFIG near the top:
-  whatsapp: "countrycode+number without +"
-  email: "your email"
+Contact configuration:
+- WhatsApp: +91 75280 76807
+- Instagram: @sdwebtech
 
-PROJECT PREVIEWS
-The portfolio uses live iframe previews for:
-- jesansteelworks.com
-- sahneypagrihouse.com
-Page tabs switch between different live pages.
-If a browser/provider ever blocks iframe embedding, users can still open the exact page using the ↗ button.
+Features:
+- Premium light theme with full dark-mode toggle in the fixed header
+- Theme preference saved in the browser
+- Direct WhatsApp deep link with pre-filled project enquiry message
+- Direct Instagram profile link
+- Responsive single-page portfolio
+- Live website preview frames with page tabs for both featured projects
+- Scroll reveal and subtle cursor lighting effects
 
-HOSTING
-This is a static website and can be hosted directly on GitHub Pages, Netlify, Vercel, etc.
+Open index.html in a browser or deploy the folder to GitHub Pages / any static host.
